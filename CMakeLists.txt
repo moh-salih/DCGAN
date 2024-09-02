@@ -5,7 +5,9 @@ project(app)
 # Set global variables.
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
-# set(MKL_LINK "static")
+
+set(CMAKE_CUDA_STANDARD 20)
+set(CMAKE_CUDA_STANDARD_REQUIRED ON)
 
 
 # Find required dependencies.
