@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.11)
 
-project(app)
+project(app LANGUAGES CUDA CXX)
 
 # Set global variables.
 set(CMAKE_CXX_STANDARD 20)
