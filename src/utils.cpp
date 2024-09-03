@@ -1,6 +1,7 @@
 #include "dcgan/utils.h"
 
 namespace dcgan::utils{
+
     void preprocess(const cv::Mat& cvImage, torch::Tensor& torchImage){
         cv::Mat image = cvImage.clone();
 
@@ -30,7 +31,6 @@ namespace dcgan::utils{
         cvImage = cv::Mat(image.size(0), image.size(1), CV_8UC3, image.data_ptr<uint8_t>()).clone();
     }
 
-
     void imShow(const torch::Tensor& torchImage){
         std::cout << "Received a torch image in with the shape: " << torchImage.sizes() << '\n';
         cv::Mat cvImage;
@@ -39,10 +39,10 @@ namespace dcgan::utils{
         cv::waitKey();
     }
 
-
     void imSave(const torch::Tensor& torchImage, const std::string& filepath){
         cv::Mat cvImage;
         dcgan::utils::postprocess(torchImage, cvImage);
         cv::imwrite(filepath, cvImage);
     }
+
 }

@@ -11,11 +11,8 @@ namespace dcgan{
         std::vector<std::string> imagePaths;
     public:
         explicit NatureDataset(const fs::path& dataDir);
-
-        // Override get()
         torch::data::Example<> get(size_t index) override;
-
-        inline torch::optional<size_t> size() const override{ return imagePaths.size(); }
+        torch::optional<size_t> size() const override;
     private:
         void loadImages(const fs::path& dataDir);
     };

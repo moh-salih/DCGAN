@@ -1,6 +1,7 @@
 #include "dcgan/NatureDataset.h"
 #include "dcgan/utils.h"
 #include <opencv2/opencv.hpp>
+#include <opencv2/imgcodecs.hpp>
 #include <assert.h>
 
 namespace dcgan{
@@ -26,4 +27,9 @@ namespace dcgan{
 
         return { torchImage, torch::tensor(static_cast<int64_t>(index), torch::kInt64)};
     }
+
+    torch::optional<size_t> NatureDataset::size() const {
+        return imagePaths.size(); 
+    }
+
 };
